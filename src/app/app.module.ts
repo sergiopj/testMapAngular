@@ -12,8 +12,12 @@ import { MaterialModule } from './material.module';
 
 // services
 import { ClientsService } from './services/clients.service';
+
 // angular maps
 import { AgmCoreModule } from '@agm/core';
+
+// pipes
+import { FormatCoordinatesPipe } from './pipes/format-coordinates.pipe';
 
 
 // reactive fomrs module
@@ -23,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    FormatCoordinatesPipe
   ],
   imports: [
     BrowserModule,
