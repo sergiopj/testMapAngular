@@ -16,6 +16,13 @@ export class MapComponent implements OnInit{
   lng: string;
   newLat: string;
   newLng: string;
+  icon = {
+    url: '../../../assets/img/marker.png',
+    scaledSize: {
+      width: 40,
+      height: 40
+    }
+  };
 
   constructor(public _clientsService: ClientsService) { }
 
@@ -24,7 +31,6 @@ export class MapComponent implements OnInit{
     this._clientsService.change.subscribe(
       res => {
         this.newMarker = res;
-        console.log('New Marker ', this.newMarker);
         this.newLat = res.Latitud;
         this.newLng = res.Longitud;
       });
@@ -37,7 +43,6 @@ export class MapComponent implements OnInit{
           this.markers = clients;
           this.lat = this.markers[0].Latitud;
           this.lng = this.markers[0].Longitud;
-          console.log('Markers ', this.markers);
         });
   }
 
