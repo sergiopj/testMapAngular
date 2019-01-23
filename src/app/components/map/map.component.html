@@ -5,12 +5,15 @@
         <!-- this creates a google map on the page with the given lat/lng from -->
         <!-- the component as the initial center of the map: --><br>
         <agm-map [latitude]="lat | coordinatesFormat" [longitude]="lng | coordinatesFormat" [zoom]="2">
-            <agm-marker [latitude]="newLat | coordinatesFormat" [longitude]="newLng | coordinatesFormat" [iconUrl]="icon"></agm-marker>
+            <agm-marker [latitude]="newLat | coordinatesFormat" [longitude]="newLng | coordinatesFormat" [iconUrl]="icon">
+                <agm-info-window>
+                    <strong>{{ newName }}</strong>
+                    <p>{{ newDescription }}</p>
+                </agm-info-window>
+            </agm-marker>
             <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker.Latitud | coordinatesFormat" [longitude]="marker.Longitud | coordinatesFormat">
                 <agm-info-window>
-                    <strong>
-                  {{ marker.Nombre }}
-                </strong>
+                    <strong>{{ marker.Nombre }}</strong>
                     <p>{{ marker.Descripcion }}</p>
                 </agm-info-window>
             </agm-marker>

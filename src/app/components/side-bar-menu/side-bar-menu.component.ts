@@ -20,24 +20,13 @@ export class SideBarMenuComponent implements OnInit {
     document.getElementById('myForm').style.display = 'none';
   }
 
-  createNewClient(form) {
-    if (form.invalid) {
-      return;
-    }
-
-    console.log('Form ', form);
-    console.log('Client ', this.client);
-
-    // ahora muestro el marcador en azul inyecto este cliente en un nuevo marcador 
-
-
-    this._clientService.addNewClient(this.client)
-                       .subscribe( (res: any) => {
-                         console.log('res ', res);
-                         // añadir cliente al marcador
-                         this._clientService.newClient = res;
-                         console.log('New vlient ', this._clientService.newClient);
-                       });
+showNewClient (form) {
+  console.log('FORMMMS ', form);
+  if (form.invalid) {
+    return;
   }
+  this._clientService.showNewClient(this.client);
+  // aparece el modal de aceptacion
+}
 
 }

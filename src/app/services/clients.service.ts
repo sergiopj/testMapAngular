@@ -20,13 +20,17 @@ export class ClientsService {
                     .pipe(map( (res: Client) => res['clients']));
   }
 
+  showNewClient (client: Client) {
+    this.newClient = client;
+    this.change.emit(this.newClient);
+  }
+
   addNewClient(client: Client) {
     console.log('Test ', client);
     const newClientUrl = 'http://localhost:3000/clients/new';
     return this.http.post(newClientUrl, client)
                     .pipe(map( (res: Client) => {
                       this.newClient = res['client'];
-                      this.change.emit(this.newClient);
                       return this.newClient;
                   }));
 

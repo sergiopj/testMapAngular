@@ -7,7 +7,7 @@ import { ClientsService } from '../../services/clients.service';
   templateUrl: './map.component.html',
   styles: []
 })
-export class MapComponent implements OnInit{
+export class MapComponent implements OnInit {
 
   markers: Client[] = [];
   newMarker: Client;
@@ -16,6 +16,8 @@ export class MapComponent implements OnInit{
   lng: string;
   newLat: string;
   newLng: string;
+  newName: string;
+  newDescription: string;
   icon = {
     url: '../../../assets/img/marker.png',
     scaledSize: {
@@ -30,9 +32,12 @@ export class MapComponent implements OnInit{
     this.getAllClients();
     this._clientsService.change.subscribe(
       res => {
+        console.log('JODER ', res)
         this.newMarker = res;
         this.newLat = res.Latitud;
         this.newLng = res.Longitud;
+        this.newName = res.Nombre;
+        this.newDescription = res.Descripcion;
       });
   }
 
