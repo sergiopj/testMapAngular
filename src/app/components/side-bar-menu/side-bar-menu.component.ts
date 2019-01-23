@@ -16,4 +16,9 @@ export class SideBarMenuComponent implements OnInit {
     document.getElementById('myForm').style.display = 'none';
   }
 
+  createNewClient(form) {
+    // recoger el cliente, llamar a servicio de insercion y refrescar la pintada
+    // en el mapa con marcador de otro color se guarda y se salva en la bd
+  }
+
 }

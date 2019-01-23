@@ -20,7 +20,7 @@ export class MapComponent implements OnInit {
     this.getAllClients();
   }
 
-  getAllClients() {
+  getAllClients(): void {
     this._clientsService.getAllClients()
         .subscribe( clients => {
           this.markers = clients;
@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
         });
   }
 
-  addNewClient(client: Client): void {
+  openMenu(): void {
     document.getElementById('myForm').style.display = 'block';
     // insert new client 
   }
