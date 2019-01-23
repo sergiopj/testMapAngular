@@ -11,8 +11,8 @@ export class MapComponent implements OnInit {
 
   markers: Client[] = [];
 
-  lat = 41.9860072;
-  lng = -4.5649220;
+  lat: string;
+  lng: string;
 
   constructor(public _clientsService: ClientsService) { }
 
@@ -23,10 +23,16 @@ export class MapComponent implements OnInit {
   getAllClients() {
     this._clientsService.getAllClients()
         .subscribe( clients => {
-          console.log('Clients ', clients);
           this.markers = clients;
+          this.lat = this.markers[0].Latitud;
+          this.lng = this.markers[0].Longitud;
           console.log('Markers ', this.markers);
         });
+  }
+
+  addNewClient(client: Client): void {
+    document.getElementById('myForm').style.display = 'block';
+    // insert new client 
   }
 
 }

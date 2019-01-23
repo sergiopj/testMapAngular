@@ -1,0 +1,14 @@
+<div class="form-popup" id="myForm">
+    <form class="form-container">
+      <h1>New Client</h1>  
+      <label for="name"><b>Client Name</b></label><br>
+      <input type="text" placeholder="Client Name" name="name" required><br>  
+      <label for="Description"><b>Description</b></label><br>
+      <textarea rows="8" cols="30"></textarea><br><br> 
+      <label for="latitude"><b>Latitude</b></label>
+      <input type="text" placeholder="Latitude" name="latitude" required> 
+      <label for="longitude"><b>Longitude</b></label>
+      <input type="text" placeholder="Longitude" name="longitude" required> 
+      <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
+    </form>
+  </div>

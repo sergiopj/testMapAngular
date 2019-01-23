@@ -2,7 +2,8 @@ export class Client {
     constructor(
         public Nombre?: string,
         public Descripcion?: string,
-        public Coordenadas?: object,
+        public Latitud?: string,
+        public Longitud?: string,
         public _id?: string
     ) { }
 }

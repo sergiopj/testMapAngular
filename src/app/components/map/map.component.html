@@ -1,4 +1,18 @@
 <mat-card>
-        <mat-card-title>Clients Map</mat-card-title>
-        <mat-card-content>Map Coords</mat-card-content>
-</mat-card>
+        <mat-card-title>Map</mat-card-title>
+        <button (click)="addNewClient()" style="float: right; margin: 10px;" mat-raised-button color="warn">Add new client</button>
+        <mat-card-content>                        
+          <!-- this creates a google map on the page with the given lat/lng from -->
+          <!-- the component as the initial center of the map: -->          <br> 
+          <agm-map [latitude]="lat | coordinatesFormat" [longitude]="lng | coordinatesFormat" [zoom]="2">
+            <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker.Latitud | coordinatesFormat" [longitude]="marker.Longitud | coordinatesFormat">
+              <agm-info-window>
+                <strong>
+                  {{ marker.Nombre }}
+                </strong>
+                <p>{{ marker.Descripcion }}</p>    
+              </agm-info-window> 
+            </agm-marker>
+          </agm-map>
+        </mat-card-content>
+      </mat-card>
