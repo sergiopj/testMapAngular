@@ -10,17 +10,24 @@ import { ClientsService } from '../../services/clients.service';
 export class MapComponent implements OnInit{
 
   markers: Client[] = [];
+  newMarker: Client;
 
   lat: string;
   lng: string;
+  newLat: string;
+  newLng: string;
 
   constructor(public _clientsService: ClientsService) { }
 
   ngOnInit() {
     this.getAllClients();
     this._clientsService.change.subscribe(
-      res => console.log('yeaggg ', res )
-    );
+      res => {
+        this.newMarker = res;
+        console.log('New Marker ', this.newMarker);
+        this.newLat = res.Latitud;
+        this.newLng = res.Longitud;
+      });
   }
 
 
@@ -36,7 +43,6 @@ export class MapComponent implements OnInit{
 
   openMenu(): void {
     document.getElementById('myForm').style.display = 'block';
-    // insert new client 
   }
 
 

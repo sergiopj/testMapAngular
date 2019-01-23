@@ -5,6 +5,7 @@
         <!-- this creates a google map on the page with the given lat/lng from -->
         <!-- the component as the initial center of the map: --><br>
         <agm-map [latitude]="lat | coordinatesFormat" [longitude]="lng | coordinatesFormat" [zoom]="2">
+            <agm-marker [latitude]="newLat | coordinatesFormat" [longitude]="newLng | coordinatesFormat" color="blue"></agm-marker>
             <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker.Latitud | coordinatesFormat" [longitude]="marker.Longitud | coordinatesFormat">
                 <agm-info-window>
                     <strong>
