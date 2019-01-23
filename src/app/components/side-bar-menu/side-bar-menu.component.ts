@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ClientsService } from '../../services/clients.service';
+import { Client } from '../../models/client.model';
 
 @Component({
   selector: 'app-side-bar-menu',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarMenuComponent implements OnInit {
 
-  constructor() { }
+  client: Client = new Client('', '', '', '');
+
+  constructor(public _clientService: ClientsService) { }
 
   ngOnInit() {
   }
@@ -17,8 +21,23 @@ export class SideBarMenuComponent implements OnInit {
   }
 
   createNewClient(form) {
-    // recoger el cliente, llamar a servicio de insercion y refrescar la pintada
-    // en el mapa con marcador de otro color se guarda y se salva en la bd
+    if (form.invalid) {
+      return;
+    }
+
+    console.log('Form ', form);
+    console.log('Client ', this.client);
+
+    // ahora muestro el marcador en azul inyecto este cliente en un nuevo marcador 
+
+
+    this._clientService.addNewClient(this.client)
+                       .subscribe( (res: any) => {
+                         console.log('res ', res);
+                         // añadir cliente al marcador
+                         this._clientService.newClient = res;
+                         console.log('New vlient ', this._clientService.newClient);
+                       });
   }
 
 }

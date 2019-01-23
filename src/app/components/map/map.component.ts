@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Output } from '@angular/core';
 import { Client } from '../../models/client.model';
 import { ClientsService } from '../../services/clients.service';
 
@@ -7,7 +7,7 @@ import { ClientsService } from '../../services/clients.service';
   templateUrl: './map.component.html',
   styles: []
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit{
 
   markers: Client[] = [];
 
@@ -18,7 +18,11 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.getAllClients();
+    this._clientsService.change.subscribe(
+      res => console.log('yeaggg ', res )
+    );
   }
+
 
   getAllClients(): void {
     this._clientsService.getAllClients()
@@ -34,5 +38,7 @@ export class MapComponent implements OnInit {
     document.getElementById('myForm').style.display = 'block';
     // insert new client 
   }
+
+
 
 }
