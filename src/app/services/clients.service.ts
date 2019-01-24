@@ -22,6 +22,7 @@ export class ClientsService {
   }
 
   showNewClient (client: Client) {
+    console.log('client ', client);
     this.newClient = client;
     this.change.emit(this.newClient);
   }

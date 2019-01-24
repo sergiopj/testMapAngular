@@ -20,6 +20,7 @@ export class CoordinatesFormatPipe implements PipeTransform {
     if (direction === 'S' || direction === 'W') {
       dd = dd * -1;
     } // Don't do anything for N or E
-    return dd;  }
+    return dd;
+  }
 
 }
