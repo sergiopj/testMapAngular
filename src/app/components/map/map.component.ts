@@ -32,7 +32,6 @@ export class MapComponent implements OnInit {
     this.getAllClients();
     this._clientsService.change.subscribe(
       res => {
-        console.log('JODER ', res)
         this.newMarker = res;
         this.newLat = res.Latitud;
         this.newLng = res.Longitud;

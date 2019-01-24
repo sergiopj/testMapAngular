@@ -1,15 +1,15 @@
 <div class="form-popup" id="myForm">
-    <form class="form-container" #f="ngForm" ngNativeValidate (ngSubmit)="showNewClient(f)">
+    <form ngNativeValidate class="form-container" #f="ngForm" (submit)="showNewClient(f)">
         <h1>New Client</h1>
         <label for="name"><b>Client Name</b></label><br>
-        <input [(ngModel)]="client.Nombre" name="name" type="text" class="form-control" placeholder="Enter Client Name" required><br>
+        <input [(ngModel)]="client.Nombre" name="name" type="text" class="form-control" placeholder="Name..." required>
         <label for="Description"><b>Description</b></label><br>
-        <textarea [(ngModel)]="client.Descripcion" name="desc" class="form-control" rows="8" cols="30" required></textarea><br><br>
+        <textarea [(ngModel)]="client.Descripcion" name="desc" class="form-control" rows="8" cols="30" required></textarea><br>
         <label for="latitude"><b>Latitude</b></label><br>
-        <input [(ngModel)]="client.Latitud" type="text" placeholder="Latitude" name="latitude" required><br>
+        <input [(ngModel)]="client.Latitud" type="text" placeholder="Latitude..." name="latitude" required><br>
         <label for="longitude"><b>Longitude</b></label><br>
-        <input [(ngModel)]="client.Longitud" type="text" placeholder="Longitude" name="longitude" required>
+        <input [(ngModel)]="client.Longitud" type="text" placeholder="Longitude..." name="longitude" required>
         <button type="submit" class="btn primary" (click)="closeForm()">Accept</button>
-        <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+        <button type="reset" class="btn cancel" (click)="closeForm()">Close</button>
     </form>
 </div>

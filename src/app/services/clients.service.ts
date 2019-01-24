@@ -2,6 +2,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Client } from '../models/client.model';
+import { URL_SERVICES } from '../config/config';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class ClientsService {
   constructor(public http: HttpClient) { }
 
   getAllClients() {
-    const clientsUrl = 'http://localhost:3000/clients';
+    const clientsUrl = `${URL_SERVICES}/clients`;
     return this.http.get(clientsUrl)
                     .pipe(map( (res: Client) => res['clients']));
   }
@@ -26,8 +27,7 @@ export class ClientsService {
   }
 
   addNewClient(client: Client) {
-    console.log('Test ', client);
-    const newClientUrl = 'http://localhost:3000/clients/new';
+    const newClientUrl = `${URL_SERVICES}/clients/new`;
     return this.http.post(newClientUrl, client)
                     .pipe(map( (res: Client) => {
                       this.newClient = res['client'];
