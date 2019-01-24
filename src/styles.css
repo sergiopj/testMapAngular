@@ -119,6 +119,13 @@ agm-map {
 }
 
 
+/* FORM */
+
+textarea {
+    background-color: #555;
+}
+
+
 /*  MODAL */
 
 .black-background {
